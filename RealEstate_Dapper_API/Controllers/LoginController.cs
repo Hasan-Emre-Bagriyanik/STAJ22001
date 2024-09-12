@@ -22,19 +22,23 @@ namespace RealEstate_Dapper_Api.Controllers
         public async Task<IActionResult> SingIn(CreateLoginDto createLoginDto)
         {
             string query = "Select * From AppUser Where UserName = @userName and Password = @password";
-            string query2 = "Select UserID From AppUser Where UserName = @userName and Password = @password";
+            string query2 = "Select UserID, UserRole, RoleName From AppUser a inner join AppRole u on a.UserRole = u.RoleID  Where UserName = @userName and Password = @password";
             var parameters = new DynamicParameters();
             parameters.Add("@userName", createLoginDto.UserName);
             parameters.Add("@password", createLoginDto.Password);
             using (var connection = _context.CreateConnection())
             {
-                var values = await connection.QueryFirstOrDefaultAsync<CreateLoginDto>(query, parameters);
-                var values2 = await connection.QueryFirstAsync<GetAppUserIdDto>(query2, parameters);
-                if (values != null)
+                var user = await connection.QueryFirstOrDefaultAsync(query, parameters);
+                var userRole = await connection.QueryFirstOrDefaultAsync(query2, parameters);
+                if (user != null && userRole != null)
                 {
-                    GetCheckAppUserViewModel model = new GetCheckAppUserViewModel();
-                    model.UserName = values.UserName;
-                    model.Id = values2.UserID;
+                    GetCheckAppUserViewModel model = new GetCheckAppUserViewModel
+                    {
+                        UserName = user.UserName,
+                        Id = userRole.UserID,
+                        RoleId = userRole.UserRole,
+                        Role = userRole.RoleName
+                    };
                     var token = JwtTokenGenerator.GenerateToken(model);
                     return Ok(token);
                 }

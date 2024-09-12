@@ -1,6 +1,7 @@
 
 using RealEstate_Dapper_Api.Containers;
 using RealEstate_Dapper_Api.Hubs;
+using RealEstate_Dapper_Api.Models.DapperContext;
 
 
 namespace RealEstate_Dapper_Api

@@ -11,26 +11,37 @@ namespace RealEstate_Dapper_Api.Tools
         public static TokenResponseViewModel GenerateToken(GetCheckAppUserViewModel model)
         {
             var claims = new List<Claim>();
-            if (!string.IsNullOrWhiteSpace(model.Role))
-                claims.Add(new Claim(ClaimTypes.Role, model.Role));
 
-            claims.Add(new Claim(ClaimTypes.NameIdentifier, model.Id.ToString()));
+            if (model.Id != null)
+            {
+                claims.Add(new Claim(ClaimTypes.NameIdentifier, model.Id.ToString()));
+            }
+
+            if (!string.IsNullOrWhiteSpace(model.Role))
+            {
+                claims.Add(new Claim(ClaimTypes.Role, model.Role));
+            }
 
             if (!string.IsNullOrWhiteSpace(model.UserName))
             {
-                claims.Add(new Claim("Username", model.UserName));
+                claims.Add(new Claim(ClaimTypes.Name, model.UserName));
             }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtTokenDefault.Key));
             var signinCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var expireDate = DateTime.UtcNow.AddDays(JwtTokenDefault.Expire);
 
-            JwtSecurityToken  token = new JwtSecurityToken(issuer:JwtTokenDefault.ValidIssuer, audience:JwtTokenDefault.ValidAudience, 
-                claims:claims, notBefore: DateTime.UtcNow , expires:expireDate, signingCredentials:signinCredentials);
+            JwtSecurityToken token = new JwtSecurityToken(
+                issuer: JwtTokenDefault.ValidIssuer,
+                audience: JwtTokenDefault.ValidAudience,
+                claims: claims,
+                notBefore: DateTime.UtcNow,
+                expires: expireDate,
+                signingCredentials: signinCredentials);
+
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
 
             return new TokenResponseViewModel(tokenHandler.WriteToken(token), expireDate);
-
         }
     }
 }

@@ -29,6 +29,7 @@ namespace RealEstate_Dapper_UI.Controllers
             var client = _httpClientFactory.CreateClient();
             var content = new StringContent(JsonSerializer.Serialize(createLoginDto), Encoding.UTF8, "application/json");
             var response = await client.PostAsync("https://localhost:44341/api/Login", content);
+
             if (response.IsSuccessStatusCode)
             {
                 var jsonData = await response.Content.ReadAsStringAsync();
@@ -41,20 +42,29 @@ namespace RealEstate_Dapper_UI.Controllers
                 {
                     JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
                     var token = handler.ReadJwtToken(tokenModel.Token);
+
+                    // Token'dan rol bilgisini al
+                    var roleClaim = token.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
                     var claims = token.Claims.ToList();
+                    claims.Add(new Claim("realestatetoken", tokenModel.Token));
 
-                    if (tokenModel.Token != null)
+                    var claimsIdentity = new ClaimsIdentity(claims, JwtBearerDefaults.AuthenticationScheme);
+                    var authProps = new AuthenticationProperties
                     {
-                        claims.Add(new Claim("realestatetoken", tokenModel.Token));
-                        var claimsIdentity = new ClaimsIdentity(claims, JwtBearerDefaults.AuthenticationScheme);
-                        var authProps = new AuthenticationProperties
-                        {
-                            ExpiresUtc = tokenModel.ExpireDate,
-                            IsPersistent = true
-                        };
+                        ExpiresUtc = tokenModel.ExpireDate,
+                        IsPersistent = true
+                    };
 
-                        await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme,new ClaimsPrincipal(claimsIdentity),authProps);
+                    await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProps);
+
+                    // Rol bilgisine göre yönlendirme yap
+                    if (roleClaim == "Admin")
+                    {
                         return RedirectToAction("Index", "Employee");
+                    }
+                    else
+                    {
+                        return Redirect("https://localhost:44383/EstateAgent/Dashboard/Index/");
                     }
                 }
             }
