@@ -5,7 +5,7 @@
         <div class="container py-lg-5 py-md-4 py-2">
             <h3 class="title-big text-center">Eklenen Son 3 Yeni İlan</h3>
             <div class="row mt-lg-5 mt-4 pt-3">
-                @foreach(var item in Model)
+                @foreach (var item in Model)
                 {
                     <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-4">
                         <div class="grids5-info">
@@ -22,13 +22,21 @@
                             <div class="blog-info">
                                 <a href="#category" class="category">@item.CategoryName</a>
                                 <h4><a href="#blog-single">@item.Title</a></h4>
-                                <p>@item.Description.Substring(0,100)...</p>
+                                <p>
+                                    @if (item.Description.Length > 100)
+                                    {
+                                        @item.Description.Substring(0, 100)
+                                       
+                                                    }
+                                    else
+                                    {
+                                        @item.Description
+                                    }
+                                </p>
                             </div>
                         </div>
                     </div>
                 }
-                
-        
             </div>
         </div>
     </section>

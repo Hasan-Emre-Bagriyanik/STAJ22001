@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hasan Emre\\Desktop\\ASP.Net Core\\RealEstate_Dapper_UI\\RealEstate_Dapper_UI.csproj": {}
+    "C:\\Users\\Hasan Emre\\Documents\\GitHub\\STAJ22001\\RealEstate_Dapper_UI\\RealEstate_Dapper_UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hasan Emre\\Desktop\\ASP.Net Core\\RealEstate_Dapper_UI\\RealEstate_Dapper_UI.csproj": {
+    "C:\\Users\\Hasan Emre\\Documents\\GitHub\\STAJ22001\\RealEstate_Dapper_UI\\RealEstate_Dapper_UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hasan Emre\\Desktop\\ASP.Net Core\\RealEstate_Dapper_UI\\RealEstate_Dapper_UI.csproj",
+        "projectUniqueName": "C:\\Users\\Hasan Emre\\Documents\\GitHub\\STAJ22001\\RealEstate_Dapper_UI\\RealEstate_Dapper_UI.csproj",
         "projectName": "RealEstate_Dapper_UI",
-        "projectPath": "C:\\Users\\Hasan Emre\\Desktop\\ASP.Net Core\\RealEstate_Dapper_UI\\RealEstate_Dapper_UI.csproj",
+        "projectPath": "C:\\Users\\Hasan Emre\\Documents\\GitHub\\STAJ22001\\RealEstate_Dapper_UI\\RealEstate_Dapper_UI.csproj",
         "packagesPath": "C:\\Users\\Hasan Emre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hasan Emre\\Desktop\\ASP.Net Core\\RealEstate_Dapper_UI\\obj\\",
+        "outputPath": "C:\\Users\\Hasan Emre\\Documents\\GitHub\\STAJ22001\\RealEstate_Dapper_UI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hasan Emre\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -2185,11 +2185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hasan Emre\\Desktop\\ASP.Net Core\\RealEstate_Dapper_Api\\RealEstate_Dapper_Api.csproj",
+      "projectUniqueName": "C:\\Users\\Hasan Emre\\Documents\\GitHub\\STAJ22001\\RealEstate_Dapper_API\\RealEstate_Dapper_Api.csproj",
       "projectName": "RealEstate_Dapper_Api",
-      "projectPath": "C:\\Users\\Hasan Emre\\Desktop\\ASP.Net Core\\RealEstate_Dapper_Api\\RealEstate_Dapper_Api.csproj",
+      "projectPath": "C:\\Users\\Hasan Emre\\Documents\\GitHub\\STAJ22001\\RealEstate_Dapper_API\\RealEstate_Dapper_Api.csproj",
       "packagesPath": "C:\\Users\\Hasan Emre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hasan Emre\\Desktop\\ASP.Net Core\\RealEstate_Dapper_Api\\obj\\",
+      "outputPath": "C:\\Users\\Hasan Emre\\Documents\\GitHub\\STAJ22001\\RealEstate_Dapper_API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hasan Emre\\AppData\\Roaming\\NuGet\\NuGet.Config",

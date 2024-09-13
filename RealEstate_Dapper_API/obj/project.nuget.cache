@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X4b6QYvHzquYJ3gZvY3G6Pz3uymnnlmZvOfxvk6tsefJGwBihexL1225qjsp4fReeFqA0ZSPeAq2x2Zblgc2sw==",
+  "dgSpecHash": "ZnWAjESqs2ixkEFRfto+7u/uWA3lkfJe4H8CbEupHyOzFkZYhHOQOv3HNcbYvtauUNLeog6sE9u+5eEu8D0d6Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hasan Emre\\Desktop\\ASP.Net Core\\RealEstate_Dapper_Api\\RealEstate_Dapper_Api.csproj",
+  "projectFilePath": "C:\\Users\\Hasan Emre\\Documents\\GitHub\\STAJ22001\\RealEstate_Dapper_API\\RealEstate_Dapper_Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hasan Emre\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Hasan Emre\\.nuget\\packages\\azure.identity\\1.11.3\\azure.identity.1.11.3.nupkg.sha512",

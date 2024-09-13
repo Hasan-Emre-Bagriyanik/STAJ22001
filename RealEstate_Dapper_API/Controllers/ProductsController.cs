@@ -99,5 +99,24 @@ namespace RealEstate_Dapper_Api.Controllers
             return Ok(values);
         }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            await _productRepository.DeleteProduct(id);
+            return Ok("İlan Kısmı Başarılı Bir Şekilde Silindi");
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateProduct(UpdateProductDto updateProductDto)
+        {
+            await _productRepository.UpdateProduct(updateProductDto);
+            return Ok("İlan Kısmı Başarıyla Güncellendi");
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProduct(int id)
+        {
+            var value = await _productRepository.GetProduct(id);
+            return Ok(value);
+        }
+
     }
 }

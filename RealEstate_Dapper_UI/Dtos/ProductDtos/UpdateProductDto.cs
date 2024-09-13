@@ -11,5 +11,13 @@
         public string coverimage { get; set; }
         public string type { get; set; }
         public string address { get; set; }
+
+
+        public string Description { get; set; }
+        public string Type { get; set; }
+        public bool DealOfTheDay { get; set; }
+        public DateTime AdvertisementDate { get; set; }
+        public bool ProductStatus { get; set; }
+        public int ProductCategory { get; set; }
     }
 }
